@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="typeof weather.main != 'undefined' && weather.main.temp > 16 ? 'warm': ''">
+  <div id="app" :class="(typeof weather.main != 'undefined' && weather.main.temp > 16 ? 'warm': '')">
     <main>
       <div class="search-box">
         <input 
@@ -13,7 +13,7 @@
         >
       </div>
 
-      <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
+      <div class="weather-wrap" v-if="(typeof weather.main != 'undefined')">
         <div class="location-box">
           <div class="location">{{weather.name}}, {{weather.sys.country}}</div>
           <div class="date">{{ dateBuilder() }}</div>
