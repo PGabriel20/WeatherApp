@@ -30,6 +30,8 @@
 
 <script>
 
+import './styles/global.css';
+
 export default {
   name: 'App',
   data(){
@@ -73,16 +75,6 @@ export default {
 </script>
 
 <style>
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body{
-  font-family: 'montserrat', sans-serif;
-}
-
 #app{
   background-image: url('./assets/cold-bg.jpg');
   background-position: bottom;
@@ -105,7 +97,7 @@ main{
   min-height: 100vh;
   padding: 25px;
 
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.75));
+  background-image: linear-gradient(to bottom, var(--gradient-1), var(--gradient-2));
 }
 
 .search-box{
@@ -118,7 +110,7 @@ main{
   width: 100%;
   padding: 15px;
 
-  color: #313131;
+  color: var(--text);
   font-size: 20px;
 
   appearance: none;
@@ -126,24 +118,24 @@ main{
   outline: none;
   background: none;
 
-  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
-  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0px 0px 16px var(--gradient-1);
+  background: var(--background);
   border-radius: 0px 16px;
   transition: .4s;
 }
 
 .search-box .search-bar:focus{
-  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
-  background: rgba(255, 255, 255, 0.75);
+  box-shadow: 0px 0px 16px var(--gradient-1);
+  background: var(--background-active);
   border-radius: 16px 0px;
 }
 
 .location-box .location{
-  color: #fff;
+  color: var(--white);
   font-size: 32px;
   font-weight: 500;
   text-align: center;
-  text-shadow: 1px 3px rgba(0, 0, 0, 0.25);
+  text-shadow: 1px 3px var(--gradient-1);
 }
 
 .location-box .date{
@@ -161,23 +153,23 @@ main{
 .weather-box .temperature{
   display: inline-block;
   padding: 10px 25px;
-  color: #FFF;
+  color: var(--white);
   font-size: 102px;
   font-weight: 900;
 
-  text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
-  background: rgba(255, 255, 255, 0.25);
+  text-shadow: 3px 6px var(--gradient-1);
+  background: var(--background);
   border-radius: 16px;
   margin: 30px 0;
 
-  box-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 3px 6px var(--gradient-1);
 }
 
 .weather-box .weather{
-  color: #fff;
+  color: var(--white);
   font-size: 48px;
   font-weight: 700;
   font-style: italic;
-  text-shadow: 3px 6px rgba(0, 0, 0, 0.25);
+  text-shadow: 3px 6px var(--gradient-1);
 }
 </style>
