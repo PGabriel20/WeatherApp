@@ -2,12 +2,20 @@
   <div id="app">
     <main>
       <div class="search-box">
-        <input type="text" name="" id="" class="search-bar" placeholder="Search...">
+        <input 
+          type="text" 
+          name="" 
+          id="" 
+          class="search-bar" 
+          placeholder="Search..."
+          v-model="params"
+          @keypress="fetchWeather"
+        >
       </div>
 
       <div class="weather-wrap">
         <div class="location-box">
-          <div class="location">London, UK</div>
+          <div class="location">{{weather.name}}, {{weather.sys.country}}</div>
           <div class="date">Wednsday 20 September 2021</div>
         </div>
 
@@ -27,7 +35,26 @@ export default {
   data(){
     return{
       api_key: '248c3f60e5ca048898e57d5ec1df6822',
-
+      base_url: `https://api.openweathermap.org/data/2.5/`,
+      params: '',
+      weather: { }
+    }
+  },
+  methods:{
+    fetchWeather(e){
+      if(e.key === 'Enter'){
+        fetch(`${this.base_url}weather?q=${this.params}&units=metric&APPID=${this.api_key}`)
+        .then((res)=>{
+          return res.json();
+        })
+        .then(this.setResults)
+        .catch((err)=>{
+          alert(`Failed to fetch data: ${err}`);
+        })
+      }
+    },
+    setResults(results){
+      this.weather = results
     }
   }
 }
