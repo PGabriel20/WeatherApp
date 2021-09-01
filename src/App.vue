@@ -16,7 +16,7 @@
       <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
         <div class="location-box">
           <div class="location">{{weather.name}}, {{weather.sys.country}}</div>
-          <div class="date">Wednsday 20 September 2021</div>
+          <div class="date">{{ dateBuilder() }}</div>
         </div>
 
         <div class="weather-box">
@@ -65,7 +65,7 @@ export default {
       let date = d.getDate();
       let month = months[d.getMonth()];
       let year = d.getFullYear();
-      
+
       return `${day} ${date} ${month} ${year}`;
     }
   }
